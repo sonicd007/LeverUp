@@ -11,5 +11,9 @@ max_skid_speed = 5;
 acceleration_rate = 0.2; // How quickly speed changes
 deceleration_rate = 0.1; // How quickly speed slows down
 
+_boat_x_speed = 0;
+_boat_y_speed = 0;
+_boat_accel = 0;
+
 // Tank orientation
 image_angle = 90
