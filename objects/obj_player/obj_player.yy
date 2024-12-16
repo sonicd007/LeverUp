@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_hull",
-    "path":"sprites/spr_hull/spr_hull.yy",
+    "name":"Airboat",
+    "path":"sprites/Airboat/Airboat.yy",
   },
   "spriteMaskId":null,
   "visible":true,

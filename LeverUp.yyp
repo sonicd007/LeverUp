@@ -36,8 +36,8 @@
   "resources":[
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"DebugRoom","path":"rooms/DebugRoom/DebugRoom.yy",},},
+    {"id":{"name":"Airboat","path":"sprites/Airboat/Airboat.yy",},},
     {"id":{"name":"spr_hull","path":"sprites/spr_hull/spr_hull.yy",},},
-    {"id":{"name":"spr_weapon","path":"sprites/spr_weapon/spr_weapon.yy",},},
     {"id":{"name":"WaterPlacholder","path":"sprites/WaterPlacholder/WaterPlacholder.yy",},},
   ],
   "resourceType":"GMProject",

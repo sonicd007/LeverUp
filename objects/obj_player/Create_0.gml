@@ -7,13 +7,14 @@ left_speed = 0;
 right_speed = 0;
 
 // Motion settings
-max_skid_speed = 5;
-acceleration_rate = 0.2; // How quickly speed changes
-deceleration_rate = 0.1; // How quickly speed slows down
+drag = 0.99; //lower numbers = more drag
+acceleration_constant = 0.05 // adjusts how twitchy acceleration and decelleration is, bigger = faster acceleration
+turning_constant = 0.5 // adjusts how twitchy turning is, bigger = tictchier turning
 
 _boat_x_speed = 0;
 _boat_y_speed = 0;
 _boat_accel = 0;
+_debug_accel = 0;
 
 // Tank orientation
-image_angle = 90
+image_angle = 0
