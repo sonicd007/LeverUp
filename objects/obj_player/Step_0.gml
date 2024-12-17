@@ -53,4 +53,4 @@ image_angle += turning_constant * ( _left_accel - _right_accel );
 x += _boat_x_speed;
 y += _boat_y_speed;
 
-
+//git check
