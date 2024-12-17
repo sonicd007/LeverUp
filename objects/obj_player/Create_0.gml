@@ -17,4 +17,4 @@ _boat_accel = 0;
 _debug_accel = 0;
 
 // Tank orientation
-image_angle = 0
+image_angle = 0;
