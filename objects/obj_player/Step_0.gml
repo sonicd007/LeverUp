@@ -53,4 +53,44 @@ image_angle += turning_constant * ( _left_accel - _right_accel );
 x += _boat_x_speed;
 y += _boat_y_speed;
 
-//git check
+if (harpoon_cooldown > 0) {
+    harpoon_cooldown -= 1; // Reduce cooldown
+}
+
+// Shoot Harpoon
+if (!harpoon_active && harpoon_cooldown <= 0 && keyboard_check_pressed(vk_space)) {
+    harpoon = instance_create_layer(x, y, "Instances", obj_harpoon); // Create harpoon
+    harpoon.direction = image_angle;  // Set direction based on player facing angle
+    harpoon_active = true;            // Activate harpoon
+	harpoon_cooldown = harpoon_cooldown_interval;
+}
+
+// Check for active harpoon
+if (harpoon_active && harpoon != noone) {
+    // If harpoon hits a gator
+    if (harpoon.target != noone) {
+        target_gator = harpoon.target;
+        target_gator.state = ENEMY_STATE.HOOKED; // Change gator to fleeing
+        harpoon_timer = 300;  // 5 seconds to drag gator
+    }
+}
+
+// Handle dragging logic
+if (target_gator != noone) {
+    // Move player erratically while dragging
+    x += random_range(-1, 1);
+    y += random_range(-1, 1);
+
+    // Check if dragged to target location
+    if (point_distance(target_gator.x, target_gator.y, drag_target_x, drag_target_y) < 32) {
+        show_message("Gator successfully dragged!");
+        reset_harpoon(); // Reset harpoon and states
+    }
+
+    // Check timer expiration
+    harpoon_timer -= 1;
+    if (harpoon_timer <= 0) {
+        show_message("Gator broke free!");
+        reset_harpoon(); // Reset harpoon and states
+    }
+}
