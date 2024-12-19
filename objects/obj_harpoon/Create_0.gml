@@ -1,10 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-enum ENEMY_STATE {
-	IDLE,
-	WANDERING,
-	HUNTING,
-	FLEEING,
-	HOOKED
-}
+target = noone; // Tracks the gator hit by the harpoon
+speed = harpoon_speed;

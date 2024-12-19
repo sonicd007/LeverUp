@@ -33,6 +33,11 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"idle_state_transition_to_wandering_in_seconds","filters":[],"listItems":[],"multiselect":false,"name":"idle_state_transition_to_wandering_in_seconds","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"hunt_radius","filters":[],"listItems":[],"multiselect":false,"name":"hunt_radius","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"300","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"target_prey","filters":[],"listItems":[],"multiselect":false,"name":"target_prey","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"hunt_speed","filters":[],"listItems":[],"multiselect":false,"name":"hunt_speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"wander_change_interval","filters":[],"listItems":[],"multiselect":false,"name":"wander_change_interval","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"180","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"normal_speed","filters":[],"listItems":[],"multiselect":false,"name":"normal_speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"2","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
