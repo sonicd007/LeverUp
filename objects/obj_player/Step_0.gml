@@ -42,8 +42,8 @@ _boat_accel = acceleration_constant * (_debug_accel - _left_accel - _right_accel
 
 
 
-_boat_x_speed += sin(image_angle / 57.2958) * _boat_accel;
-_boat_y_speed += cos(image_angle / 57.2958) * _boat_accel;
+_boat_x_speed += cos(image_angle / 57.2958) * _boat_accel;
+_boat_y_speed += sin(image_angle / 57.2958) * _boat_accel;
 
 	//Drag that slows down the boat speed over time, lower numbers = more drag
 _boat_x_speed = _boat_x_speed * drag;
