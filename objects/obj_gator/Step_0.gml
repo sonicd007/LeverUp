@@ -33,33 +33,48 @@ switch self.current_state {
 		// Calculate distance from player
 		var dist_to_player = distance_to_point(obj_player.x, obj_player.y);
 		
-		if (dist_to_player > 400) {
+		if (dist_to_player > self.stop_fleeing_distance) {
 			// If the gator is more than 100 pixels away from the player, transition to wandering
 			self.current_state = ENEMY_STATE.WANDERING;
 		} else {
 			// Move erratically away from the player
 			var flee_dir = point_direction(x, y, obj_player.x, obj_player.y) + 180;
-			x += lengthdir_x(2, flee_dir);
-			y += lengthdir_y(2, flee_dir);
+			x += lengthdir_x(self.flee_speed, flee_dir);
+			y += lengthdir_y(self.flee_speed, flee_dir);
 		}
 		break;
 	case ENEMY_STATE.HOOKED:
 	    debug_text = "HOOKED";
-	    // Calculate distance from player
-	    var dist_to_player = distance_to_point(obj_player.x, obj_player.y);
+		if (place_meeting(x, y, obj_gator_capture_zone)) {
+	        // Increment player's points
+	        obj_player.points += 1;
 
-	    if (dist_to_player > 200) {
-	        // If the gator is more than 200 pixels away, drag it towards the player
-	        var drag_direction = point_direction(x, y, obj_player.x, obj_player.y);
-	        x += lengthdir_x(2, drag_direction);
-	        y += lengthdir_y(2, drag_direction);
+	        // Play a sound effect
+	        //audio_play_sound(snd_capture_success, 1, false);
+
+	        // Create a visual effect
+	        //instance_create_layer(x, y, "Effects", obj_capture_effect);
+
+	        // Destroy the gator
+	        instance_destroy();
 	    } else {
-	        // Apply resistance: move erratically within the 50px radius (away from the player)
-	        var shake_strength = 4; // This can be adjusted to control the shaking force
-	        var flee_dir = point_direction(x, y, obj_player.x, obj_player.y) + 180; // 180° to move away
-	        x += lengthdir_x(shake_strength, flee_dir);
-	        y += lengthdir_y(shake_strength, flee_dir);
-	    }
+		    // Calculate distance from player
+		    var dist_to_player = distance_to_point(obj_player.x, obj_player.y);
+
+		    if (dist_to_player > self.struggle_distance_threshold) {
+			
+		        // If the gator is more than 200 pixels away, drag it towards the player
+		        var drag_direction = point_direction(x, y, obj_player.x, obj_player.y);
+		        x += lengthdir_x(obj_player.drag_strength, drag_direction);
+		        y += lengthdir_y(obj_player.drag_strength, drag_direction);
+		    } else {
+			
+		        // Apply resistance: move erratically within the 50px radius (away from the player)
+		        var flee_dir = point_direction(x, y, obj_player.x, obj_player.y) + 180; // 180° to move away
+		        x += lengthdir_x(self.shake_strength, flee_dir);
+		        y += lengthdir_y(self.shake_strength, flee_dir);
+		    }
+		}
     break;
 
 	default:
